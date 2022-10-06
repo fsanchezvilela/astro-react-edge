@@ -1,7 +1,7 @@
 [build.environment]
-  NPM_FLAGS = "--version" # prevent Netlify npm install
+  NPM_FLAGS="--prefix=/"
 [build]
-  command = 'npx pnpm i --store=node_modules/.pnpm-store && npm run build'
+  command = npm run build
   publish = 'dist'
 [[edge_functions]]
 path = "/"
