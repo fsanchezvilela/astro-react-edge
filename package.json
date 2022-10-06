@@ -4,9 +4,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "check-version": "node scripts/tools/check-version.js",
-    "dev": "npm check-version && astro dev",
-    "start": "npm check-version && astro dev",
+    "check-version": "node ./scripts/tools/check-version.js",
+    "dev": "npm run check-version && astro dev",
+    "start": "npm run check-version && astro dev",
     "build": "astro check && tsc --noEmit && astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -18,15 +18,16 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown",
-    "*.js": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
+    "**/*": "prettier --write --ignore-unknown --plugin-search-dir=.",
+    "*.{js,ts,tsx}": "eslint --cache --fix",
+    "*.{js,ts,tsx,scss,css,md}": "prettier --write"
   },
   "dependencies": {
     "@astrojs/image": "^0.9.1",
     "@astrojs/netlify": "^1.1.0",
     "@astrojs/react": "^1.1.4",
     "@astrojs/tailwind": "^2.0.2",
+    "@types/node": "18.8.2",
     "astro": "^1.4.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
