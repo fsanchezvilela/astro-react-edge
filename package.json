@@ -5,22 +5,27 @@
   "private": true,
   "scripts": {
     "check-version": "node ./scripts/tools/check-version.js",
-    "dev": "npm run check-version && astro dev",
-    "start": "npm run check-version && astro dev",
+    "dev": "pnpm run check-version && astro dev",
+    "start": "pnpm run check-version && astro dev",
     "build": "astro check && tsc --noEmit && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "npm eslint src",
-    "lint:fix": "npm run lint -- --fix",
-    "prettier": "prettier --check --plugin-search-dir=. .",
-    "prettier:fix": "prettier --write --plugin-search-dir=. .",
-    "format": "npm run lint:fix && npm run prettier:fix && ",
+    "lint:react": "eslint src/**/*.{js,jsx,ts,tsx,json}",
+    "lint:react:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
+    "format:react": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc --plugin-search-dir=.",
+    "lint:astro": "eslint src .js, .astro",
+    "format:astro": "prettier --write 'src/**/*.{astro}' --config ./.prettierrc --plugin-search-dir=.",
     "prepare": "husky install"
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown --plugin-search-dir=.",
-    "*.{js,ts,tsx}": "eslint --cache --fix",
-    "*.{js,ts,tsx,scss,css,md}": "prettier --write"
+    "**/*.{js,jsx,ts,tsx}": [
+      "pnpm run lint:react:fix",
+      "pnpm run format:react"
+    ],
+    "**/*.{astro}": [
+      "pnpm run lint:astro",
+      "pnpm run format:astro"
+    ]
   },
   "dependencies": {
     "@astrojs/image": "^0.9.1",
@@ -37,12 +42,18 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
-    "eslint": "^8.0.1",
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "8.5.0",
     "eslint-config-standard-with-typescript": "^23.0.0",
-    "eslint-plugin-import": "^2.25.2",
+    "eslint-import-resolver-typescript": "3.5.1",
+    "eslint-plugin-astro": "0.19.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "4.6.0",
     "husky": "^8.0.1",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.5.5",

@@ -6,15 +6,11 @@ import netlify from '@astrojs/netlify/edge-functions';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    react(),
-    tailwind(),
-    image({
-      serviceEntryPoint: '@astrojs/image/sharp',
-      logLevel: 'debug',
-      cacheDir: './.cache/image'
-    })
-  ],
+  integrations: [react(), tailwind(), image({
+    serviceEntryPoint: '@astrojs/image/sharp',
+    logLevel: 'debug',
+    cacheDir: './.cache/image'
+  })],
   output: 'server',
   adapter: netlify()
 });
