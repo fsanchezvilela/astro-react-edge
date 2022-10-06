@@ -1,8 +1,15 @@
 # Personal Website: Portfolio
 
-## Astro + React
+## Astro + React + Tailwind
 
 Using Netlify Edge Functions
+
+## Add Collaborative Layers:
+
+- Eslint
+- CommitLint
+- husky
+- prettier
 
 ## 🧞 Commands
 
