@@ -13,6 +13,7 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": true
-  }
+  },
+   "typescript.inlayHints.parameterNames.enabled": "all"
   // …
 }

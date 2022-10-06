@@ -8,9 +8,11 @@ specifiers:
   '@commitlint/cli': 17.1.2
   '@commitlint/config-conventional': 17.1.0
   '@types/node': 18.8.2
+  '@types/react': ^18.0.21
   '@typescript-eslint/eslint-plugin': ^5.39.0
   '@typescript-eslint/parser': ^5.39.0
   astro: ^1.4.4
+  astro-eslint-parser: 0.6.3
   eslint: ^8.24.0
   eslint-config-prettier: 8.5.0
   eslint-config-standard-with-typescript: ^23.0.0
@@ -48,8 +50,10 @@ dependencies:
 devDependencies:
   '@commitlint/cli': 17.1.2
   '@commitlint/config-conventional': 17.1.0
+  '@types/react': 18.0.21
   '@typescript-eslint/eslint-plugin': 5.39.0_xyciw6oqjoiiono4dhv3uhn5my
   '@typescript-eslint/parser': 5.39.0_ypn2ylkkyfa5i233caldtndbqa
+  astro-eslint-parser: 0.6.3
   eslint: 8.24.0
   eslint-config-prettier: 8.5.0_eslint@8.24.0
   eslint-config-standard-with-typescript: 23.0.0_d3fnrl5am7mk7twr547f3qmcte
@@ -87,6 +91,11 @@ packages:
 
   /@astrojs/compiler/0.25.2:
     resolution: {integrity: sha512-GE7uLvH7rSHuTHdMun+867TWsgYNYsaGuhvXsywcaabl4W4n/3b1kzgzrIsrXYBo51J0k6qD33mVdsHdvwv5rw==}
+    dev: false
+
+  /@astrojs/compiler/0.26.0:
+    resolution: {integrity: sha512-we6XcJp4BnG2+1HhKYwIqfM6xt/T0nrhBkNSZNcrY/g449t2TyA6H/j0dRadiV8CGIE27T6q3sEq7Nm2Qfi6oQ==}
+    dev: true
 
   /@astrojs/image/0.9.1_sharp@0.31.1:
     resolution: {integrity: sha512-tnrL9tL539gIzkM9oqRd+asOePPUE/ehtQjmrcsTjJtQx8aPhKHEteJIMuDhby94wRhV6vMK1Wqt4u5DBf6GQQ==}
@@ -960,9 +969,25 @@ packages:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
     dev: false
 
+  /@types/prop-types/15.7.5:
+    resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
+    dev: true
+
+  /@types/react/18.0.21:
+    resolution: {integrity: sha512-7QUCOxvFgnD5Jk8ZKlUAhVcRj7GuJRjnjjiY/IUBWKgOlnvDvTMLD4RTF7NPyVmbRhNrbomZiOepg7M/2Kj1mA==}
+    dependencies:
+      '@types/prop-types': 15.7.5
+      '@types/scheduler': 0.16.2
+      csstype: 3.1.1
+    dev: true
+
   /@types/resolve/1.20.2:
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
     dev: false
+
+  /@types/scheduler/0.16.2:
+    resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
+    dev: true
 
   /@types/unist/2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
@@ -1311,9 +1336,9 @@ packages:
     resolution: {integrity: sha512-lwGKdR1HqCbdF1NNuj0JL6tSVcJvLF63CGm7PaFFYAa6WTKj6Wa/TknNJK3JM/s433OGGFpnykIQaBZ74K+apg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     dependencies:
-      '@astrojs/compiler': 0.25.2
+      '@astrojs/compiler': 0.26.0
       '@typescript-eslint/types': 5.39.0
-      astrojs-compiler-sync: 0.2.3_@astrojs+compiler@0.25.2
+      astrojs-compiler-sync: 0.2.3_@astrojs+compiler@0.26.0
       debug: 4.3.4
       eslint-visitor-keys: 3.3.0
       espree: 9.4.0
@@ -1394,13 +1419,13 @@ packages:
       - ts-node
     dev: false
 
-  /astrojs-compiler-sync/0.2.3_@astrojs+compiler@0.25.2:
+  /astrojs-compiler-sync/0.2.3_@astrojs+compiler@0.26.0:
     resolution: {integrity: sha512-9zh85DrHieEylj7ir0MBmalyClw420oBhxn/NYGRx7xXoepofNuUR6RjY7V4l1kiolhvJ/uWKfZNZcHm7VsY6g==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       '@astrojs/compiler': '>=0.18.0'
     dependencies:
-      '@astrojs/compiler': 0.25.2
+      '@astrojs/compiler': 0.26.0
       synckit: 0.8.4
     dev: true
 
@@ -1805,6 +1830,10 @@ packages:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
     engines: {node: '>=4'}
     hasBin: true
+
+  /csstype/3.1.1:
+    resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
+    dev: true
 
   /damerau-levenshtein/1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}
