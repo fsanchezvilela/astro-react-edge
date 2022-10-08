@@ -1,4 +1,4 @@
-# Personal Website: Portfolio
+# POC-Proyect to use Astro with React on the Edge 
 
 ## Astro + React + Tailwind
 
